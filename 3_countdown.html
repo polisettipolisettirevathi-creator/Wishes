@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>⏳ Birthday Countdown - For Usha</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="flex flex-col items-center justify-center min-h-screen relative p-4 py-16">
+
+  <!-- Main Container -->
+  <div class="relative z-10 w-full max-w-3xl p-8 glass-card text-center rounded-3xl my-auto">
+    
+    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-purple-500/20 border border-purple-400/30 text-purple-300 text-xs font-semibold uppercase tracking-wider mb-6">
+      <span>⏳ Counting Down To Usha's Birthday Tomorrow</span>
+    </div>
+
+    <!-- Couple Photo Frame -->
+    <div class="relative w-64 h-64 sm:w-80 sm:h-80 mx-auto mb-8 photo-container glow-effect rounded-full border-4 border-pink-400/40 p-2 cursor-pointer"
+         data-lightbox data-caption="Together Forever - Birthday Countdown Couple Photo ⏳❤️">
+      <img src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&fit=crop&w=800&q=80" 
+           alt="Couple Photo Countdown" 
+           class="w-full h-full object-cover rounded-full transition-transform duration-700 hover:scale-105">
+      <div class="absolute inset-0 rounded-full border-2 border-dashed border-pink-300/60 animate-spin-slow"></div>
+    </div>
+
+    <h1 class="text-3xl sm:text-4xl font-bold font-serif text-pink-200 mb-2">Countdown to Usha's Birthday!</h1>
+    <p class="text-pink-100/70 text-sm mb-8">Birthday is Tomorrow! Every second brings us closer to midnight! ❤️</p>
+
+    <!-- Countdown Timer Grid -->
+    <div class="grid grid-cols-4 gap-3 sm:gap-6 max-w-xl mx-auto mb-10">
+      <div class="p-4 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md glow-effect">
+        <span id="days" class="text-3xl sm:text-5xl font-extrabold text-pink-400 gold-glow-text font-mono">00</span>
+        <span class="block text-xs uppercase text-slate-300 font-medium mt-1">Days</span>
+      </div>
+      <div class="p-4 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md glow-effect">
+        <span id="hours" class="text-3xl sm:text-5xl font-extrabold text-pink-400 gold-glow-text font-mono">00</span>
+        <span class="block text-xs uppercase text-slate-300 font-medium mt-1">Hours</span>
+      </div>
+      <div class="p-4 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md glow-effect">
+        <span id="minutes" class="text-3xl sm:text-5xl font-extrabold text-pink-400 gold-glow-text font-mono">00</span>
+        <span class="block text-xs uppercase text-slate-300 font-medium mt-1">Minutes</span>
+      </div>
+      <div class="p-4 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md glow-effect">
+        <span id="seconds" class="text-3xl sm:text-5xl font-extrabold text-pink-400 gold-glow-text font-mono">00</span>
+        <span class="block text-xs uppercase text-slate-300 font-medium mt-1">Seconds</span>
+      </div>
+    </div>
+
+    <!-- Navigation -->
+    <div class="flex items-center justify-center gap-4 flex-wrap">
+      <a href="2_welcome.html" class="nav-btn-secondary">← Back</a>
+      <a href="4_letter.html" class="nav-btn">
+        <span>Read Love Letter</span>
+        <span>💌</span>
+      </a>
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    const now = new Date();
+    let targetTime = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1, 0, 0, 0);
+
+    function updateTimer() {
+      const currentTime = new Date();
+      const diff = targetTime - currentTime;
+
+      if (diff <= 0) {
+        document.getElementById('days').innerText = "00";
+        document.getElementById('hours').innerText = "00";
+        document.getElementById('minutes').innerText = "00";
+        document.getElementById('seconds').innerText = "00";
+        return;
+      }
+
+      const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const h = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const m = Math.floor((diff / 1000 / 60) % 60);
+      const s = Math.floor((diff / 1000) % 60);
+
+      document.getElementById('days').innerText = d < 10 ? '0' + d : d;
+      document.getElementById('hours').innerText = h < 10 ? '0' + h : h;
+      document.getElementById('minutes').innerText = m < 10 ? '0' + m : m;
+      document.getElementById('seconds').innerText = s < 10 ? '0' + s : s;
+    }
+
+    setInterval(updateTimer, 1000);
+    updateTimer();
+  </script>
+</body>
+</html>

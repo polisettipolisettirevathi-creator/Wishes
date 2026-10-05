@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>💌 Love Letter - For Usha</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="flex items-center justify-center min-h-screen relative overflow-hidden bg-slate-950 p-4">
+
+  <!-- Full-screen Background Photo -->
+  <div class="fixed inset-0 z-0">
+    <img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=1920&q=80" 
+         alt="Full Screen Romantic Background" 
+         class="w-full h-full object-cover filter brightness-40 scale-105">
+    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-black/40"></div>
+  </div>
+
+  <!-- Glassmorphism Love Letter Card -->
+  <div class="relative z-10 w-full max-w-2xl p-8 sm:p-12 glass-card rounded-3xl shadow-2xl my-auto text-left border border-pink-500/20">
+    
+    <!-- Letter Header -->
+    <div class="flex items-center justify-between border-b border-pink-400/20 pb-4 mb-6">
+      <div class="flex items-center gap-3">
+        <span class="text-3xl">💌</span>
+        <div>
+          <h2 class="text-2xl font-bold font-script text-pink-300 glow-text">Dearest Usha</h2>
+          <p class="text-xs text-pink-200/60 font-mono">Written with love forever & always ❤️</p>
+        </div>
+      </div>
+      <span class="text-xs bg-pink-500/20 border border-pink-400/30 text-pink-300 px-3 py-1 rounded-full">Love Letter</span>
+    </div>
+
+    <!-- Animated Love Letter Content -->
+    <div class="space-y-4 text-slate-100 font-serif text-lg leading-relaxed max-h-[60vh] overflow-y-auto pr-2 custom-scrollbar">
+      <p id="typewriter-text" class="min-h-[160px]">
+        <!-- Typewriter text inserted by JS -->
+      </p>
+    </div>
+
+    <!-- Letter Footer & Navigation -->
+    <div class="mt-8 pt-4 border-t border-pink-400/20 flex items-center justify-between flex-wrap gap-4">
+      <a href="3_countdown.html" class="nav-btn-secondary">← Back</a>
+      <a href="5_memories.html" class="nav-btn">
+        <span>Our Memories</span>
+        <span>📸</span>
+      </a>
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    const letterContent = `My Sweetest Wifiy Usha,\n\nFrom the moment you walked into my life, every single day has been brighter, warmer, and full of joy. Your smile is my daily inspiration, and your warmth is my peaceful sanctuary.\n\nOn this very special birthday, I want to remind you how deeply loved and appreciated you are. You make my world complete, my darling Queen Usha ❤️.\n\nForever Yours, With All My Love 💕`;
+
+    let index = 0;
+    const speed = 35;
+    const el = document.getElementById('typewriter-text');
+
+    function typeWriter() {
+      if (index < letterContent.length) {
+        const char = letterContent.charAt(index);
+        el.innerHTML += char === '\n' ? '<br>' : char;
+        index++;
+        setTimeout(typeWriter, speed);
+      }
+    }
+
+    setTimeout(typeWriter, 500);
+  </script>
+</body>
+</html>

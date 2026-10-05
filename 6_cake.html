@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🎂 Birthday Cake - For Usha</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .flame {
+      width: 14px;
+      height: 22px;
+      background: radial-gradient(ellipse at bottom, #ffe600 0%, #ff5e00 60%, transparent 100%);
+      border-radius: 50% 50% 20% 20%;
+      box-shadow: 0 0 15px #ffae00, 0 0 30px #ff3b00;
+      animation: flicker 0.15s ease-in-out infinite alternate;
+      cursor: pointer;
+    }
+    @keyframes flicker {
+      0% { transform: scale(1) rotate(-2deg); opacity: 0.95; }
+      100% { transform: scale(1.15) rotate(2deg); opacity: 1; }
+    }
+    .flame.off {
+      display: none;
+    }
+    .smoke {
+      width: 6px;
+      height: 20px;
+      background: rgba(255, 255, 255, 0.4);
+      border-radius: 50%;
+      filter: blur(4px);
+      animation: rise 1.5s forwards;
+    }
+    @keyframes rise {
+      0% { opacity: 1; transform: translateY(0) scale(1); }
+      100% { opacity: 0; transform: translateY(-30px) scale(2); }
+    }
+  </style>
+</head>
+<body class="flex flex-col items-center justify-center min-h-screen relative p-4 py-16">
+
+  <!-- Main Glass Container -->
+  <div class="relative z-10 w-full max-w-3xl p-8 glass-card text-center rounded-3xl my-auto">
+    
+    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-pink-500/20 border border-pink-400/30 text-pink-300 text-xs font-semibold uppercase tracking-wider mb-6">
+      <span>🎂 Make A Wish & Blow The Candles</span>
+    </div>
+
+    <h1 class="text-4xl sm:text-5xl font-bold font-script text-pink-300 glow-text mb-2">
+      Happy Birthday Usha ❤️
+    </h1>
+    <p class="text-pink-100/80 text-sm mb-6">Tap the candles below to blow them out & unlock your wish! ✨</p>
+
+    <!-- Layout: Photo & Interactive Cake Side-by-Side -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center my-6">
+
+      <!-- Birthday Photo -->
+      <div class="photo-container w-full h-72 rounded-3xl glow-effect shadow-2xl cursor-pointer"
+           data-lightbox data-caption="Birthday Cake Celebration Photo - Usha ❤️">
+        <img src="images/pic12.jpeg" 
+             alt="Birthday Photo" class="w-full h-full object-cover rounded-3xl">
+        <div class="absolute bottom-3 left-3 bg-black/50 backdrop-blur-md px-3 py-1 rounded-full text-xs text-white">
+          Click photo to view 📸
+        </div>
+      </div>
+
+      <!-- Interactive 2D Cake with Candles -->
+      <div class="relative flex flex-col items-center justify-center p-6 bg-white/5 rounded-3xl border border-white/10">
+        
+        <!-- Candles Row -->
+        <div class="flex gap-6 mb-1 z-10">
+          <div class="flex flex-col items-center cursor-pointer" onclick="blowCandle(1)">
+            <div id="flame-1" class="flame"></div>
+            <div id="smoke-1" class="smoke hidden"></div>
+            <div class="w-3 h-10 bg-gradient-to-b from-pink-400 to-pink-600 rounded-t-sm shadow-md"></div>
+          </div>
+          <div class="flex flex-col items-center cursor-pointer" onclick="blowCandle(2)">
+            <div id="flame-2" class="flame"></div>
+            <div id="smoke-2" class="smoke hidden"></div>
+            <div class="w-3 h-12 bg-gradient-to-b from-yellow-300 to-amber-500 rounded-t-sm shadow-md"></div>
+          </div>
+          <div class="flex flex-col items-center cursor-pointer" onclick="blowCandle(3)">
+            <div id="flame-3" class="flame"></div>
+            <div id="smoke-3" class="smoke hidden"></div>
+            <div class="w-3 h-10 bg-gradient-to-b from-purple-400 to-indigo-600 rounded-t-sm shadow-md"></div>
+          </div>
+        </div>
+
+        <!-- Layer 1 Top Cake -->
+        <div class="w-44 h-14 bg-gradient-to-r from-pink-400 via-rose-300 to-pink-400 rounded-t-2xl shadow-lg border-b-4 border-pink-500 flex items-center justify-center relative overflow-hidden">
+          <span class="text-xs font-bold text-pink-900 tracking-wider">HAPPY BIRTHDAY USHA ❤️</span>
+          <div class="absolute top-0 w-full flex justify-around text-white/40 text-xs">🍓 🍓 🍓</div>
+        </div>
+
+        <!-- Layer 2 Middle Cake -->
+        <div class="w-56 h-16 bg-gradient-to-r from-rose-500 via-pink-400 to-rose-500 rounded-t-xl shadow-lg border-b-4 border-rose-700 flex items-center justify-center relative">
+          <div class="text-white text-xs font-semibold">✨ Happy Birthday ✨</div>
+        </div>
+
+        <!-- Layer 3 Base Cake -->
+        <div class="w-68 h-12 bg-gradient-to-r from-purple-600 via-pink-600 to-purple-600 rounded-b-2xl shadow-2xl flex items-center justify-center">
+          <div class="w-72 h-3 bg-amber-200/40 rounded-full shadow-inner"></div>
+        </div>
+
+        <!-- Status Message -->
+        <p id="wish-status" class="mt-4 text-xs font-semibold text-pink-300 animate-pulse">
+          Click each candle to blow it out! 🕯️
+        </p>
+      </div>
+
+    </div>
+
+    <!-- Navigation -->
+    <div class="flex items-center justify-center gap-4 flex-wrap mt-6">
+      <a href="5_memories.html" class="nav-btn-secondary">← Back</a>
+      <a href="7_moment.html" class="nav-btn">
+        <span>Our Moment</span>
+        <span>❤️</span>
+      </a>
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    let blownCount = 0;
+    function blowCandle(id) {
+      const flame = document.getElementById(`flame-${id}`);
+      const smoke = document.getElementById(`smoke-${id}`);
+      if (!flame.classList.contains('off')) {
+        flame.classList.add('off');
+        smoke.classList.remove('hidden');
+        blownCount++;
+
+        if (blownCount === 3) {
+          document.getElementById('wish-status').innerHTML = "🎉 All Candles Blown! May all your dreams come true, my love Usha! ❤️";
+          document.getElementById('wish-status').className = "mt-4 text-sm font-bold text-yellow-300 gold-glow-text animate-bounce";
+        }
+      }
+    }
+  </script>
+</body>
+</html>

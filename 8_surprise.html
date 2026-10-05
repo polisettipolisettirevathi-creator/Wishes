@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🎁 Surprise Box - For Usha</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .gift-box {
+      cursor: pointer;
+      transition: transform 0.4s ease;
+    }
+    .gift-box:hover {
+      transform: scale(1.05) rotate(1deg);
+    }
+    .gift-lid {
+      transition: transform 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55), opacity 0.5s ease;
+    }
+    .gift-box.opened .gift-lid {
+      transform: translateY(-120px) rotate(-15deg);
+      opacity: 0;
+    }
+    .photo-reveal {
+      transform: scale(0.2) translateY(100px);
+      opacity: 0;
+      transition: all 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    .gift-box.opened ~ .photo-reveal {
+      transform: scale(1) translateY(0);
+      opacity: 1;
+    }
+  </style>
+</head>
+<body class="flex flex-col items-center justify-center min-h-screen relative p-4 py-16">
+
+  <!-- Main Glass Card -->
+  <div class="relative z-10 w-full max-w-2xl p-8 glass-card text-center rounded-3xl my-auto">
+    
+    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-500/20 border border-amber-400/30 text-amber-300 text-xs font-semibold uppercase tracking-wider mb-6">
+      <span>🎁 Unbox Your Special Surprise</span>
+    </div>
+
+    <h1 class="text-4xl font-bold font-script text-pink-300 glow-text mb-2">
+      A Surprise For My Wifiy Usha ❤️
+    </h1>
+    <p class="text-pink-100/80 text-sm mb-6">Tap the 3D gift box below to unwrap your special photo reveal! ✨</p>
+
+    <!-- Gift Box Interactive Component -->
+    <div class="relative min-h-[340px] flex flex-col items-center justify-center my-4">
+      
+      <!-- Unopened Gift Box -->
+      <div id="gift-element" class="gift-box flex flex-col items-center z-20" onclick="openGift()">
+        <!-- Lid -->
+        <div class="gift-lid w-44 h-12 bg-gradient-to-r from-pink-500 via-rose-400 to-pink-500 rounded-t-lg shadow-xl relative flex items-center justify-center border-b-2 border-yellow-300">
+          <div class="w-8 h-12 bg-yellow-300 absolute"></div>
+          <div class="text-2xl z-10">🎀</div>
+        </div>
+        <!-- Body -->
+        <div class="w-40 h-36 bg-gradient-to-r from-rose-600 via-pink-600 to-rose-600 rounded-b-xl shadow-2xl relative flex items-center justify-center border-t-2 border-pink-400">
+          <div class="w-8 h-full bg-yellow-300"></div>
+        </div>
+        <p id="click-hint" class="mt-4 text-xs text-yellow-300 font-semibold animate-bounce">Tap to Unwrap Gift 🎁</p>
+      </div>
+
+      <!-- Secret Revealed Photo & Message (Hidden until click) -->
+      <div id="photo-reveal-box" class="photo-reveal hidden absolute inset-0 z-30 flex flex-col items-center justify-center">
+        <div class="photo-container w-64 h-72 sm:w-72 sm:h-80 rounded-3xl glow-effect cursor-pointer mb-4"
+             data-lightbox data-caption="Surprise Reveal Photo - Rings of Promise for Usha 💍❤️">
+          <img src="file:///C:/Users/VARUN%20COMPUTERS/.gemini/antigravity/brain/23341636-c979-4f1a-af90-bd0505b183be/.user_uploaded/media_1791201706727.jpg" 
+               alt="Surprise Photo Reveal" class="w-full h-full object-cover rounded-3xl">
+        </div>
+        <div class="bg-black/60 backdrop-blur-md px-6 py-3 rounded-2xl border border-pink-400/40 text-pink-200 text-sm font-serif max-w-md">
+          “Surprise My Queen Usha! Bound by eternal love & ring promises forever! ❤️”
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Navigation -->
+    <div class="flex items-center justify-center gap-4 flex-wrap mt-8">
+      <a href="7_moment.html" class="nav-btn-secondary">← Back</a>
+      <a href="9_grandfinal.html" class="nav-btn">
+        <span>Grand Final</span>
+        <span>✨</span>
+      </a>
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    function openGift() {
+      const gift = document.getElementById('gift-element');
+      const reveal = document.getElementById('photo-reveal-box');
+      
+      gift.classList.add('opened');
+      document.getElementById('click-hint').classList.add('hidden');
+
+      setTimeout(() => {
+        gift.classList.add('hidden');
+        reveal.classList.remove('hidden');
+      }, 500);
+    }
+  </script>
+</body>
+</html>

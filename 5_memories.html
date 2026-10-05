@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>📸 Our Memories - For Usha</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="flex flex-col items-center justify-center min-h-screen relative p-4 py-20">
+
+  <!-- Header -->
+  <div class="text-center max-w-2xl mb-10 z-10">
+    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-pink-500/20 border border-pink-400/30 text-pink-300 text-xs font-semibold uppercase tracking-wider mb-4">
+      <span>📸 Treasury of Our Most Precious Life Moments</span>
+    </div>
+    <h1 class="text-4xl sm:text-5xl font-bold font-script text-pink-300 glow-text mb-3">
+      Our 10 Beautiful Memories
+    </h1>
+    <p class="text-slate-300 text-sm font-serif">
+      Tap on any card to open full-screen photo & relive our special moments ❤️
+    </p>
+  </div>
+
+  <!-- Memory Cards Grid (10 Photo Gallery) -->
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full max-w-6xl px-4 z-10 mb-12">
+
+    <!-- Card 1 -->
+    <div class="glass-card p-4 rounded-3xl glow-effect hover:-translate-y-2 transition-all duration-500 group">
+      <div class="relative h-72 rounded-2xl overflow-hidden photo-container mb-4 cursor-pointer"
+           data-lightbox data-caption="October Birthday Frame Collage - Happy Birthday Usha ❤️">
+        <img src="images/pic2.jpeg" 
+             alt="October Birthday Collage" class="w-full h-full object-cover">
+        <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-all"></div>
+      </div>
+      <h3 class="text-xl font-bold text-pink-200 font-script mb-1">October 7th Frame</h3>
+      <p class="text-xs text-slate-300 mb-3">“Collect Beautiful Moments - Stay Happy Always Usha ❤️”</p>
+      <div class="flex items-center justify-between text-xs text-pink-300/80 border-t border-white/10 pt-2">
+        <span>Memory #01</span>
+        <button onclick="toggleLike(this)" class="hover:scale-125 transition-transform text-pink-400">❤️ <span class="like-count">1007</span></button>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="glass-card p-4 rounded-3xl glow-effect hover:-translate-y-2 transition-all duration-500 group">
+      <div class="relative h-72 rounded-2xl overflow-hidden photo-container mb-4 cursor-pointer"
+           data-lightbox data-caption="Engagement Rings Showing Pose - Bound By Love Forever 💍❤️">
+        <img src="images/pic3.jpeg" 
+             alt="Ring Showing Pose" class="w-full h-full object-cover">
+        <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-all"></div>
+      </div>
+      <h3 class="text-xl font-bold text-pink-200 font-script mb-1">Rings of Love</h3>
+      <p class="text-xs text-slate-300 mb-3">“Two hands, two rings, one eternal promise.”</p>
+      <div class="flex items-center justify-between text-xs text-pink-300/80 border-t border-white/10 pt-2">
+        <span>Memory #02</span>
+        <button onclick="toggleLike(this)" class="hover:scale-125 transition-transform text-pink-400">❤️ <span class="like-count">1200</span></button>
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="glass-card p-4 rounded-3xl glow-effect hover:-translate-y-2 transition-all duration-500 group">
+      <div class="relative h-72 rounded-2xl overflow-hidden photo-container mb-4 cursor-pointer"
+           data-lightbox data-caption="Ring Exchange Moment - Placing the Ring on Usha's Hand 💍✨">
+        <img src="images/pic4.jpeg" 
+             alt="Ring Exchange Moment" class="w-full h-full object-cover">
+        <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-all"></div>
+      </div>
+      <h3 class="text-xl font-bold text-pink-200 font-script mb-1">Ring Exchange</h3>
+      <p class="text-xs text-slate-300 mb-3">“The exact moment our souls became one.”</p>
+      <div class="flex items-center justify-between text-xs text-pink-300/80 border-t border-white/10 pt-2">
+        <span>Memory #03</span>
+        <button onclick="toggleLike(this)" class="hover:scale-125 transition-transform text-pink-400">❤️ <span class="like-count">1403</span></button>
+      </div>
+    </div>
+
+    <!-- Card 4 -->
+    <div class="glass-card p-4 rounded-3xl glow-effect hover:-translate-y-2 transition-all duration-500 group">
+      <div class="relative h-72 rounded-2xl overflow-hidden photo-container mb-4 cursor-pointer"
+           data-lightbox data-caption="Romantic Dance Dip Pose - Dancing into Forever 💃🕺❤️">
+        <img src="images/pic5.jpeg" 
+             alt="Romantic Dance Dip" class="w-full h-full object-cover">
+        <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-all"></div>
+      </div>
+      <h3 class="text-xl font-bold text-pink-200 font-script mb-1">Dance of Romance</h3>
+      <p class="text-xs text-slate-300 mb-3">“Dancing in the rhythm of our hearts.”</p>
+      <div class="flex items-center justify-between text-xs text-pink-300/80 border-t border-white/10 pt-2">
+        <span>Memory #04</span>
+        <button onclick="toggleLike(this)" class="hover:scale-125 transition-transform text-pink-400">❤️ <span class="like-count">1500</span></button>
+      </div>
+    </div>
+
+    <!-- Card 5 -->
+    <div class="glass-card p-4 rounded-3xl glow-effect hover:-translate-y-2 transition-all duration-500 group">
+      <div class="relative h-72 rounded-2xl overflow-hidden photo-container mb-4 cursor-pointer"
+           data-lightbox data-caption="Sweet Heartbeat Close-up Embrace - Usha & Me 💕">
+        <img src="images/pic6.jpeg" 
+             alt="Sweet Heartbeat Embrace" class="w-full h-full object-cover object-top">
+        <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-all"></div>
+      </div>
+      <h3 class="text-xl font-bold text-pink-200 font-script mb-1">Heartbeat Embrace</h3>
+      <p class="text-xs text-slate-300 mb-3">“Listening to the melody of your heartbeat.”</p>
+      <div class="flex items-center justify-between text-xs text-pink-300/80 border-t border-white/10 pt-2">
+        <span>Memory #05</span>
+        <button onclick="toggleLike(this)" class="hover:scale-125 transition-transform text-pink-400">❤️ <span class="like-count">1150</span></button>
+      </div>
+    </div>
+
+    <!-- Card 6 -->
+    <div class="glass-card p-4 rounded-3xl glow-effect hover:-translate-y-2 transition-all duration-500 group">
+      <div class="relative h-72 rounded-2xl overflow-hidden photo-container mb-4 cursor-pointer"
+           data-lightbox data-caption="Hand in Hand Together - Usha & Me 🤝❤️">
+        <img src="images/pic7.jpeg" 
+             alt="Hand in Hand Sitting" class="w-full h-full object-cover">
+        <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-all"></div>
+      </div>
+      <h3 class="text-xl font-bold text-pink-200 font-script mb-1">Hand In Hand</h3>
+      <p class="text-xs text-slate-300 mb-3">“Holding your hand is holding my peace.”</p>
+      <div class="flex items-center justify-between text-xs text-pink-300/80 border-t border-white/10 pt-2">
+        <span>Memory #06</span>
+        <button onclick="toggleLike(this)" class="hover:scale-125 transition-transform text-pink-400">❤️ <span class="like-count">980</span></button>
+      </div>
+    </div>
+
+    <!-- Card 7 -->
+    <div class="glass-card p-4 rounded-3xl glow-effect hover:-translate-y-2 transition-all duration-500 group">
+      <div class="relative h-72 rounded-2xl overflow-hidden photo-container mb-4 cursor-pointer"
+           data-lightbox data-caption="Crowning My Queen Usha 👑❤️">
+        <img src="images/pic8.jpeg" 
+             alt="Crowning Usha" class="w-full h-full object-cover">
+        <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-all"></div>
+      </div>
+      <h3 class="text-xl font-bold text-pink-200 font-script mb-1">Crowning The Queen</h3>
+      <p class="text-xs text-slate-300 mb-3">“You wear the crown of my heart forever, Usha 👑”</p>
+      <div class="flex items-center justify-between text-xs text-pink-300/80 border-t border-white/10 pt-2">
+        <span>Memory #07</span>
+        <button onclick="toggleLike(this)" class="hover:scale-125 transition-transform text-pink-400">❤️ <span class="like-count">999</span></button>
+      </div>
+    </div>
+
+    <!-- Card 8 -->
+    <div class="glass-card p-4 rounded-3xl glow-effect hover:-translate-y-2 transition-all duration-500 group">
+      <div class="relative h-72 rounded-2xl overflow-hidden photo-container mb-4 cursor-pointer"
+           data-lightbox data-caption="Sweetest Birthday Embrace - Usha & Me ❤️">
+        <img src="images/pic9.jpeg" 
+             alt="Birthday Embrace" class="w-full h-full object-cover">
+        <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-all"></div>
+      </div>
+      <h3 class="text-xl font-bold text-pink-200 font-script mb-1">Warm Embrace</h3>
+      <p class="text-xs text-slate-300 mb-3">“Your hug fixes everything.”</p>
+      <div class="flex items-center justify-between text-xs text-pink-300/80 border-t border-white/10 pt-2">
+        <span>Memory #08</span>
+        <button onclick="toggleLike(this)" class="hover:scale-125 transition-transform text-pink-400">❤️ <span class="like-count">850</span></button>
+      </div>
+    </div>
+
+    <!-- Card 9 -->
+    <div class="glass-card p-4 rounded-3xl glow-effect hover:-translate-y-2 transition-all duration-500 group">
+      <div class="relative h-72 rounded-2xl overflow-hidden photo-container mb-4 cursor-pointer"
+           data-lightbox data-caption="I Love You Proposal Heart Pillow 💖">
+        <img src="images/pic10.jpeg" 
+             alt="Love Heart Pillow" class="w-full h-full object-cover">
+        <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-all"></div>
+      </div>
+      <h3 class="text-xl font-bold text-pink-200 font-script mb-1">I Love You</h3>
+      <p class="text-xs text-slate-300 mb-3">“My love for you grows stronger with every passing day.”</p>
+      <div class="flex items-center justify-between text-xs text-pink-300/80 border-t border-white/10 pt-2">
+        <span>Memory #09</span>
+        <button onclick="toggleLike(this)" class="hover:scale-125 transition-transform text-pink-400">❤️ <span class="like-count">1314</span></button>
+      </div>
+    </div>
+
+    <!-- Card 10 -->
+    <div class="glass-card p-4 rounded-3xl glow-effect hover:-translate-y-2 transition-all duration-500 group">
+      <div class="relative h-72 rounded-2xl overflow-hidden photo-container mb-4 cursor-pointer"
+           data-lightbox data-caption="Side By Side Forever - Usha & Me 💕">
+        <img src="images/pic11.jpeg" 
+             alt="Couple Standing Photo" class="w-full h-full object-cover">
+        <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-all"></div>
+      </div>
+      <h3 class="text-xl font-bold text-pink-200 font-script mb-1">Side By Side</h3>
+      <p class="text-xs text-slate-300 mb-3">“Standing together through every season of life.”</p>
+      <div class="flex items-center justify-between text-xs text-pink-300/80 border-t border-white/10 pt-2">
+        <span>Memory #10</span>
+        <button onclick="toggleLike(this)" class="hover:scale-125 transition-transform text-pink-400">❤️ <span class="like-count">2026</span></button>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Navigation -->
+  <div class="flex items-center justify-center gap-4 flex-wrap z-10">
+    <a href="4_letter.html" class="nav-btn-secondary">← Back</a>
+    <a href="6_cake.html" class="nav-btn">
+      <span>Cut Birthday Cake</span>
+      <span>🎂</span>
+    </a>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    function toggleLike(btn) {
+      const countEl = btn.querySelector('.like-count');
+      let count = parseInt(countEl.textContent);
+      count++;
+      countEl.textContent = count;
+      btn.classList.add('scale-125');
+      setTimeout(() => btn.classList.remove('scale-125'), 300);
+    }
+  </script>
+</body>
+</html>
